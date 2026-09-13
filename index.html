@@ -453,6 +453,8 @@
       padding: 32px 28px 28px;
       display: flex;
       flex-direction: column;
+      min-width: 0;
+      flex-direction: column;
       position: relative;
       text-decoration: none;
       color: inherit;
@@ -480,6 +482,8 @@
       padding: 4px 12px;
       border-radius: var(--radius-pill);
       letter-spacing: 0.02em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .card-phy .card-subject-pill {
       background: rgba(245, 158, 11, 0.12);
@@ -498,11 +502,15 @@
     }
     .card-domain-badge {
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--text-muted);
       background: rgba(0, 0, 0, 0.03);
       padding: 4px 8px;
       border-radius: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 155px;
     }
 
     /* Illustration Stage */
