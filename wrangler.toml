@@ -1,0 +1,7 @@
+name = "highschool-notes-portal"
+main = "worker.js"
+compatibility_date = "2024-09-12"
+
+routes = [
+  { pattern = "note.yunet.cfd/*", zone_name = "yunet.cfd" }
+]
