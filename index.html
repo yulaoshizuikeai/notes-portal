@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>高考全科知识库 · 高中理科系统级知识中枢</title>
-  <meta name="description" content="面向新高考深度备考的高中理科系统知识中枢。以第一性原理重构物理、生物、化学核心公理推演、临界模型与全景知识图谱。">
-  <meta name="keywords" content="高考知识库,高中物理,高中生物,高中化学,第一性原理,知识图谱,高考理科">
+  <title>高考全科知识库 · 高中理科知识体系与在线文档</title>
+  <meta name="description" content="高中理科（物理、生物、化学）在线知识库门户。整理高考考点模型、教材知识结构与矢量图解，支持网页查阅与离线 PDF 下载。">
+  <meta name="keywords" content="高考知识库,高中物理,高中生物,高中化学,考点模型,知识脉络,高考理科,PDF下载">
   <meta name="author" content="Yulaoshizuikeai">
   
   <!-- OpenGraph / Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://note.yunet.cfd/">
-  <meta property="og:title" content="高考全科知识库 · 高中理科系统级知识中枢">
-  <meta property="og:description" content="以第一性原理重构高考理科体系。涵盖物理经典专题模型推导、生物全册机制通路与化学微观反应平衡。">
+  <meta property="og:title" content="高考全科知识库 · 高中理科知识体系与在线文档">
+  <meta property="og:description" content="整理高考物理、生物、化学核心考点与解题模型，梳理教材知识脉络并配套矢量图解，提供网页在线查阅与离线 PDF 下载。">
   <meta property="og:image" content="https://note.yunet.cfd/images/icon.svg">
   <meta name="twitter:card" content="summary_large_image">
   
@@ -847,8 +847,122 @@
     }
 
     /* ==========================================================================
-       6. SYSTEM ARCHITECTURE METHODOLOGY (4 PILLARS)
+       6. SYSTEM ARCHITECTURE & REPOSITORY SPECIFICATIONS
        ========================================================================== */
+    .arch-topology-box {
+      margin-bottom: 20px;
+      border-radius: 1.75rem;
+      padding: 5px;
+      background: var(--bezel-outer-bg);
+      border: 1px solid var(--bezel-outer-border);
+    }
+
+    .arch-topology-inner {
+      border-radius: calc(1.75rem - 5px);
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-inner-border);
+      box-shadow: var(--bezel-inner-highlight);
+      padding: 24px 22px;
+    }
+
+    .arch-topology-title {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .arch-flow-diagram {
+      display: grid;
+      grid-template-columns: 1.1fr auto 2fr auto 1.3fr;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--bezel-inner-border);
+      border-radius: 1rem;
+      padding: 18px;
+    }
+
+    .arch-flow-node {
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-inner-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      text-align: left;
+    }
+
+    .arch-node-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+
+    .arch-node-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .arch-node-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .arch-flow-arrow {
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+    }
+
+    .arch-flow-arrow svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .arch-sub-cluster {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .arch-sub-node {
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-inner-border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .arch-sub-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .arch-sub-tech {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+    }
+
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -872,7 +986,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--bezel-inner-border);
       box-shadow: var(--bezel-inner-highlight);
-      padding: 26px 22px;
+      padding: 24px 20px;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -882,11 +996,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .pillar-number {
-      font-size: 13px;
+      font-size: 12px;
       font-family: var(--font-mono);
       font-weight: 700;
       color: var(--text-tertiary);
@@ -912,17 +1026,85 @@
     }
 
     .pillar-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       color: var(--text-primary);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+    }
+
+    .pillar-tech-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--bezel-inner-border);
+      padding: 2px 7px;
+      border-radius: 5px;
+      margin-bottom: 12px;
+      width: fit-content;
     }
 
     .pillar-desc {
-      font-size: 13px;
-      line-height: 1.65;
+      font-size: 12.5px;
+      line-height: 1.6;
       color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .pillar-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 4px;
+    }
+
+    .pillar-feature-item {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 13px;
+    }
+
+    .pillar-feature-item::before {
+      content: "•";
+      position: absolute;
+      left: 1px;
+      color: var(--text-tertiary);
+    }
+
+    .pillar-feature-item strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .pillar-repo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: auto;
+      padding-top: 16px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .pillar-repo-link:hover {
+      color: var(--text-primary);
+    }
+
+    .pillar-repo-link svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
     }
 
     /* ==========================================================================
@@ -1003,6 +1185,13 @@
       }
       .spec-strip {
         grid-template-columns: repeat(2, 1fr);
+      }
+      .arch-flow-diagram {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .arch-flow-arrow svg {
+        transform: rotate(90deg);
       }
     }
 
@@ -1099,7 +1288,7 @@
         </a>
 
         <div class="nav-links">
-          <a href="#subjects" class="nav-link">学科中枢</a>
+          <a href="#subjects" class="nav-link">学科知识库</a>
           <a href="#architecture" class="nav-link">系统架构</a>
           <a href="https://yunet.cfd" class="nav-link" target="_blank" rel="noopener">关于主理人</a>
         </div>
@@ -1119,27 +1308,27 @@
     <header class="hero-section reveal-element">
       <div class="eyebrow-tag">
         <span class="eyebrow-indicator"></span>
-        FIRST-PRINCIPLES KNOWLEDGE NEXUS
+        HIGH SCHOOL SCIENCE NOTES PORTAL
       </div>
 
       <h1 class="hero-title">
-        以第一性原理<br>
-        <span class="shimmer-text">重构高考理科体系。</span>
+        高考理科知识库<br>
+        <span class="shimmer-text">考点模型与在线文档体系。</span>
       </h1>
 
       <p class="hero-subtitle">
-        面向新高考深度备考的高精度系统知识中枢。彻底抛弃死记硬背与盲目题海，直击经典物理专题模型推演、全景生物调节机制通路与微观化学反应平衡。
+        面向高考备考系统整理的物理、生物与化学在线知识库。覆盖核心概念推导、题型模型与教材知识脉络，配套矢量图解，支持网页查阅与离线 PDF 下载。
       </p>
 
       <div class="hero-cta-group">
         <a href="https://physics.yunet.cfd" class="island-btn island-btn-primary">
-          <span>进入物理核心中枢</span>
+          <span>进入物理知识库</span>
           <div class="btn-icon-wrapper">
             <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
           </div>
         </a>
         <a href="#subjects" class="island-btn island-btn-secondary">
-          <span>浏览全科矩阵</span>
+          <span>浏览学科分类</span>
           <div class="btn-icon-wrapper">
             <svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
           </div>
@@ -1150,19 +1339,19 @@
       <div class="spec-strip">
         <div class="spec-item">
           <div class="spec-num">19<span>+</span></div>
-          <div class="spec-label">物理经典核心专题</div>
+          <div class="spec-label">物理核心专题分类</div>
         </div>
         <div class="spec-item">
-          <div class="spec-num">5<span>卷</span></div>
-          <div class="spec-label">生物全景教材脉络</div>
+          <div class="spec-num">5<span>册</span></div>
+          <div class="spec-label">生物教材完整覆盖</div>
         </div>
         <div class="spec-item">
-          <div class="spec-num">100<span>%</span></div>
-          <div class="spec-label">矢量几何拓扑推演</div>
+          <div class="spec-num">SVG</div>
+          <div class="spec-label">矢量高清模型图解</div>
         </div>
         <div class="spec-item">
-          <div class="spec-num">&lt;40<span>ms</span></div>
-          <div class="spec-label">Anycast 全球秒级边缘响应</div>
+          <div class="spec-num">Edge</div>
+          <div class="spec-label">边缘路由分流加速</div>
         </div>
       </div>
     </header>
@@ -1170,8 +1359,8 @@
     <!-- Asymmetrical Bento Subjects Grid -->
     <section id="subjects" class="section-container">
       <div class="section-header-pill reveal-element">
-        <div class="section-title-label">FLAGSHIP SUBJECT PORTALS · 核心学科矩阵</div>
-        <div class="section-aux-info">SYSTEM v2.6.4</div>
+        <div class="section-title-label">SUBJECT PORTALS · 学科知识库</div>
+        <div class="section-aux-info">KNOWLEDGE REPOSITORIES</div>
       </div>
 
       <div class="bento-grid">
@@ -1197,28 +1386,28 @@
 
               <h2 class="card-headline">高考物理知识库</h2>
               <p class="card-desc">
-                从开普勒双星变轨、粒子复合场偏转到电磁感应突变。采用微积分几何思维直击临界极值与守恒本质，构建全维力学与电磁学公理化演绎框架。
+                涵盖高中物理人教版必修 3 册与选必 3 册共 6 本教材，梳理为 19 个大专题。系统总结受力平衡、曲线运动与天体、电磁场粒子偏转及电磁感应等高考核心解题模型。
               </p>
 
               <div class="card-vector-preview">
-                <span class="vector-label">核心微模型群推导:</span>
+                <span class="vector-label">重点解题模型:</span>
                 <div class="vector-pill-cluster">
-                  <span class="vector-pill">开普勒轨道积分</span>
-                  <span class="vector-pill">复合场回旋极限</span>
-                  <span class="vector-pill">电磁阻尼感应微元</span>
-                  <span class="vector-pill">等效重力场</span>
+                  <span class="vector-pill">天体双星与变轨</span>
+                  <span class="vector-pill">带电粒子在复合场运动</span>
+                  <span class="vector-pill">电磁感应动力学与能量</span>
+                  <span class="vector-pill">等效重力场模型</span>
                 </div>
               </div>
             </div>
 
             <div class="card-footer">
               <div class="card-tags">
-                <span class="meta-tag">19 核心专题</span>
-                <span class="meta-tag">全矢量图解</span>
-                <span class="meta-tag">微分几何解析</span>
+                <span class="meta-tag">19 个大专题</span>
+                <span class="meta-tag">78+ 幅 SVG 矢量图</span>
+                <span class="meta-tag">MathJax 公式排版</span>
               </div>
-              <div class="card-cta-link" aria-label="直达高考物理知识库">
-                <span>开启物理推演</span>
+              <div class="card-cta-link" aria-label="访问高考物理知识库">
+                <span>访问物理知识库</span>
                 <div class="cta-circle">
                   <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
@@ -1249,26 +1438,27 @@
 
               <h2 class="card-headline">高考生物知识库</h2>
               <p class="card-desc">
-                全景贯通必修与选择性必修全五册教材。解构光合呼吸微观能量转移机理、神经体液免疫综合稳态通路与现代基因工程推演。
+                完整覆盖人教版必修 2 册与选择性必修 3 册共 5 册教材。梳理光合与细胞呼吸能量代谢、神经-体液-免疫调节网络、遗传规律与现代基因工程技术。
               </p>
 
               <div class="card-vector-preview">
                 <span class="vector-label">核心机制通路:</span>
                 <div class="vector-pill-cluster">
-                  <span class="vector-pill">光合电子传递链</span>
-                  <span class="vector-pill">突触传递跨膜电位</span>
-                  <span class="vector-pill">PCR 循环扩增</span>
+                  <span class="vector-pill">光合与呼吸反应全流程</span>
+                  <span class="vector-pill">突触传递与电位变化</span>
+                  <span class="vector-pill">PCR 扩增与重组质粒</span>
                 </div>
               </div>
             </div>
 
             <div class="card-footer">
               <div class="card-tags">
-                <span class="meta-tag">全五册系统图谱</span>
-                <span class="meta-tag">稳态网络机制</span>
+                <span class="meta-tag">全 5 册教材覆盖</span>
+                <span class="meta-tag">调节机制图解</span>
+                <span class="meta-tag">考点归纳与易错清单</span>
               </div>
-              <div class="card-cta-link" aria-label="直达高考生物知识库">
-                <span>开启生物中枢</span>
+              <div class="card-cta-link" aria-label="访问高考生物知识库">
+                <span>访问生物知识库</span>
                 <div class="cta-circle">
                   <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
@@ -1297,26 +1487,27 @@
 
               <h2 class="card-headline">高考化学知识库</h2>
               <p class="card-desc">
-                深入微观电子排布与杂化轨道理论。剖析电化学电子转移、水溶液多重平衡移动、滴定突跃曲线及晶体晶胞空间投影。
+                整理物质结构与性质、化学反应原理、原电池与电解池电化学、水溶液中的离子平衡（弱电解质电离、盐类水解与沉淀溶解）及有机化学合成路线。
               </p>
 
               <div class="card-vector-preview">
-                <span class="vector-label">微观反应推演:</span>
+                <span class="vector-label">核心反应与原理:</span>
                 <div class="vector-pill-cluster">
-                  <span class="vector-pill">电极双电层电位</span>
-                  <span class="vector-pill">多元弱酸分布系数</span>
-                  <span class="vector-pill">面心立方坐标投影</span>
+                  <span class="vector-pill">原电池与电解池电极反应</span>
+                  <span class="vector-pill">水溶液沉淀溶解平衡</span>
+                  <span class="vector-pill">晶胞投影与配位数计算</span>
                 </div>
               </div>
             </div>
 
             <div class="card-footer">
               <div class="card-tags">
-                <span class="meta-tag">微观杂化轨道</span>
-                <span class="meta-tag">多重平衡移动</span>
+                <span class="meta-tag">物质结构与性质</span>
+                <span class="meta-tag">化学反应原理</span>
+                <span class="meta-tag">工艺流程与实验</span>
               </div>
-              <div class="card-cta-link" aria-label="直达高考化学知识库">
-                <span>开启化学中枢</span>
+              <div class="card-cta-link" aria-label="访问高考化学知识库">
+                <span>访问化学知识库</span>
                 <div class="cta-circle">
                   <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
@@ -1328,83 +1519,191 @@
       </div>
     </section>
 
-    <!-- System Methodology & Architecture Section (4 Pillars) -->
+    <!-- System Architecture & Repository Specifications -->
     <section id="architecture" class="section-container">
       <div class="section-header-pill reveal-element">
-        <div class="section-title-label">SYSTEM METHODOLOGY · 知识库架构体系</div>
-        <div class="section-aux-info">FOUNDATIONAL PRINCIPLES</div>
+        <div class="section-title-label">SYSTEM ARCHITECTURE · 系统技术架构与工程实现</div>
+        <div class="section-aux-info">DOCS-AS-CODE ECOSYSTEM</div>
       </div>
 
+      <!-- Architecture Topology Diagram Box -->
+      <div class="arch-topology-box reveal-element">
+        <div class="arch-topology-inner">
+          <div class="arch-topology-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            知识库系统架构拓扑与数据流向
+          </div>
+          <div class="arch-flow-diagram">
+            <!-- 1. Client & Gateway -->
+            <div class="arch-flow-node">
+              <div class="arch-node-tag">ENTRY POINT</div>
+              <div class="arch-node-name">用户访问与边缘网关</div>
+              <div class="arch-node-desc">note.yunet.cfd<br>(Cloudflare Workers)</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="arch-flow-arrow">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
+            </div>
+
+            <!-- 2. Subject Repos Cluster -->
+            <div class="arch-sub-cluster">
+              <div class="arch-sub-node">
+                <div>
+                  <div class="arch-sub-name">Physics-Note (物理知识库)</div>
+                  <div class="arch-node-desc">19 个专题 · 78+ 矢量图 · MathJax 公式</div>
+                </div>
+                <div class="arch-sub-tech">physics.yunet.cfd</div>
+              </div>
+              <div class="arch-sub-node">
+                <div>
+                  <div class="arch-sub-name">Biology-Note (生物知识库)</div>
+                  <div class="arch-node-desc">5 册教材全覆盖 · 生理机制通路图谱</div>
+                </div>
+                <div class="arch-sub-tech">biology.yunet.cfd</div>
+              </div>
+              <div class="arch-sub-node">
+                <div>
+                  <div class="arch-sub-name">Chemistry-Note (化学知识库)</div>
+                  <div class="arch-node-desc">物质结构 · 反应原理 · 工艺流程</div>
+                </div>
+                <div class="arch-sub-tech">chemistry-note.seeridia.top</div>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="arch-flow-arrow">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
+            </div>
+
+            <!-- 3. Output Delivery -->
+            <div class="arch-flow-node">
+              <div class="arch-node-tag">OUTPUT ARTIFACTS</div>
+              <div class="arch-node-name">多端输出与交付</div>
+              <div class="arch-node-desc">
+                • GitHub Pages 静态网页<br>
+                • Playwright 编译全书 PDF<br>
+                • GitHub Releases 自动发版
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Technical Pillar Cards -->
       <div class="pillars-grid">
+        <!-- Card 1: notes-portal -->
         <div class="pillar-card reveal-element">
           <div class="pillar-inner">
             <div class="pillar-header">
-              <span class="pillar-number">01 / AXIOMATIC</span>
-              <div class="pillar-icon-tiny">
-                <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              </div>
-            </div>
-            <h3 class="pillar-title">公理化严谨推导</h3>
-            <p class="pillar-desc">摒弃经验主义死背，每条物理守恒与微观平衡均从定义公理严格推导至临界状态。</p>
-          </div>
-        </div>
-
-        <div class="pillar-card reveal-element">
-          <div class="pillar-inner">
-            <div class="pillar-header">
-              <span class="pillar-number">02 / VECTOR SVG</span>
-              <div class="pillar-icon-tiny">
-                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-              </div>
-            </div>
-            <h3 class="pillar-title">全保真矢量图解</h3>
-            <p class="pillar-desc">采用工业级精确数学坐标系渲染 SVG 图示，无限放大保持锐利，空间场与受力关系纤毫毕现。</p>
-          </div>
-        </div>
-
-        <div class="pillar-card reveal-element">
-          <div class="pillar-inner">
-            <div class="pillar-header">
-              <span class="pillar-number">03 / ONTOLOGY</span>
-              <div class="pillar-icon-tiny">
-                <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-              </div>
-            </div>
-            <h3 class="pillar-title">全景交叉知识图谱</h3>
-            <p class="pillar-desc">打破教材单册局限，横向贯通必修与选择性必修，构建跨学科与跨模块多维关联网络。</p>
-          </div>
-        </div>
-
-        <div class="pillar-card reveal-element">
-          <div class="pillar-inner">
-            <div class="pillar-header">
-              <span class="pillar-number">04 / ANYCAST EDGE</span>
+              <span class="pillar-number">01 / EDGE GATEWAY</span>
               <div class="pillar-icon-tiny">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </div>
             </div>
-            <h3 class="pillar-title">全球边缘秒级直达</h3>
-            <p class="pillar-desc">依托 Cloudflare 全球数百节点 Anycast 路由与极简静态架构，实现无等待极速加载响应。</p>
+            <h3 class="pillar-title">总门户与边缘路由</h3>
+            <span class="pillar-tech-badge">Cloudflare Workers · JS</span>
+            <p class="pillar-desc">全站访问入口与流量分流中枢，基于边缘无服务器计算运行，实现零服务器运维成本。</p>
+            <ul class="pillar-feature-list">
+              <li class="pillar-feature-item"><strong>路径分流与重定向</strong>：监听 <code>/physics</code>、<code>/biology</code>、<code>/chemistry</code> 路径并 301 重定向至各独立子域。</li>
+              <li class="pillar-feature-item"><strong>SEO 自动化输出</strong>：边缘动态直出 <code>sitemap.xml</code>、<code>robots.txt</code> 及 Google 站点验证。</li>
+              <li class="pillar-feature-item"><strong>极速响应</strong>：内联 SVG 资产与单页 HTML，由 GitHub Actions 自动编译部署至全球边缘节点。</li>
+            </ul>
+            <a href="https://github.com/yulaoshizuikeai/notes-portal" class="pillar-repo-link" target="_blank" rel="noopener">
+              <span>yulaoshizuikeai/notes-portal</span>
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Physics-Note -->
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">02 / DOCS ENGINE</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">物理知识库引擎</h3>
+            <span class="pillar-tech-badge">VitePress 2.0 · MathJax 3 · Vue 3</span>
+            <p class="pillar-desc">基于 VitePress 2.0 深度定制的物理文档系统，聚焦数理逻辑表达与直观图形演示。</p>
+            <ul class="pillar-feature-list">
+              <li class="pillar-feature-item"><strong>专题结构化归纳</strong>：覆盖人教版 6 册教材，梳理为 19 个大专题与核心高考题型模型。</li>
+              <li class="pillar-feature-item"><strong>公式与矢量图解</strong>：采用 MathJax 3 矢量渲染 TeX 公式，独立绘制并内联 78+ 幅高清 SVG 受力与场强图。</li>
+              <li class="pillar-feature-item"><strong>考点聚合与检索</strong>：自定义 <code>&lt;CCChapterOverview /&gt;</code> 考点组件，支持全站离线本地全文搜索。</li>
+            </ul>
+            <a href="https://github.com/yulaoshizuikeai/Physics-Note" class="pillar-repo-link" target="_blank" rel="noopener">
+              <span>yulaoshizuikeai/Physics-Note</span>
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Biology-Note -->
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">03 / CURRICULUM</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">生物知识库体系</h3>
+            <span class="pillar-tech-badge">VitePress 2.0 · Markdown · SSG</span>
+            <p class="pillar-desc">覆盖高考生物全部必修与选必教材，建立清晰的生理机制网络与核心考点清单。</p>
+            <ul class="pillar-feature-list">
+              <li class="pillar-feature-item"><strong>5 册教材全覆盖</strong>：梳理必修 1-2 与选必 1-3，构建细胞代谢、遗传变异与稳态调节等知识板块。</li>
+              <li class="pillar-feature-item"><strong>生理机制与通路梳理</strong>：图解光合呼吸流程、神经突触传递、免疫调节与现代生物技术工程。</li>
+              <li class="pillar-feature-item"><strong>标准化排版规范</strong>：沿用与物理库统一的无衬线排版、双色主题与易错考点清单，保证多端阅读体验。</li>
+            </ul>
+            <a href="https://github.com/yulaoshizuikeai/Biology-Note" class="pillar-repo-link" target="_blank" rel="noopener">
+              <span>yulaoshizuikeai/Biology-Note</span>
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: CI/CD & PDF Pipeline -->
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">04 / CI/CD PIPELINE</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">自动化构建与 PDF 导出</h3>
+            <span class="pillar-tech-badge">GitHub Actions · Playwright</span>
+            <p class="pillar-desc">工业级 Docs-as-Code 持续集成流水线，实现静态网站自动发布与印刷级 PDF 归档。</p>
+            <ul class="pillar-feature-list">
+              <li class="pillar-feature-item"><strong>自动化构建部署</strong>：代码推送至 master 分支后，CI 自动执行 VitePress 编译并部署至 GitHub Pages。</li>
+              <li class="pillar-feature-item"><strong>Playwright 批量渲染</strong>：在 CI 中加载 Noto CJK 中文字体，通过无头 Chromium 批量高保真导出 PDF。</li>
+              <li class="pillar-feature-item"><strong>Release 自动发版</strong>：脚本合并单文件全书 PDF 并打包分册 ZIP，自动发布至 GitHub Releases 供用户下载。</li>
+            </ul>
+            <div class="pillar-repo-link" style="cursor: default;">
+              <span>CI/CD Automated Workflow</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Editorial Minimalist Footer -->
+    <!-- Minimalist Footer -->
     <footer class="site-footer">
       <div class="footer-identity">
         <div class="footer-brand">
           <div class="brand-mark" style="width: 24px; height: 24px; font-size: 11px;">∑</div>
-          <span>高考全科知识库总中枢 · note.yunet.cfd</span>
+          <span>高考全科知识库门户 · note.yunet.cfd</span>
         </div>
-        <p class="footer-copy">© 2026 Yulaoshizuikeai. Built for first-principles science learners.</p>
+        <p class="footer-copy">© 2026 Yulaoshizuikeai. 高中理科考点模型与在线文档体系。</p>
       </div>
 
       <nav class="footer-nav" aria-label="底部链接">
         <a href="https://yunet.cfd" class="footer-link" target="_blank" rel="noopener">主理人首页</a>
-        <a href="https://physics.yunet.cfd" class="footer-link">物理专题</a>
-        <a href="https://biology.yunet.cfd" class="footer-link">生物网络</a>
-        <a href="https://chemistry-note.seeridia.top" class="footer-link">化学微观</a>
+        <a href="https://physics.yunet.cfd" class="footer-link">物理知识库</a>
+        <a href="https://biology.yunet.cfd" class="footer-link">生物知识库</a>
+        <a href="https://chemistry-note.seeridia.top" class="footer-link">化学知识库</a>
       </nav>
     </footer>
 
