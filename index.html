@@ -1,93 +1,224 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>高考全科知识库 · 高中理科系统级知识中枢</title>
-  <meta name="description" content="面向新高考的高中理科系统知识中枢。涵盖物理、生物、化学核心公理推导、临界模型与知识图谱。">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23171717' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='16' cy='16' r='12'/%3E%3Cpath d='M16 4v24M4 16h24'/%3E%3C/svg%3E">
+  <meta name="description" content="面向新高考深度备考的高中理科系统知识中枢。以第一性原理重构物理、生物、化学核心公理推演、临界模型与全景知识图谱。">
+  <meta name="keywords" content="高考知识库,高中物理,高中生物,高中化学,第一性原理,知识图谱,高考理科">
+  <meta name="author" content="Yulaoshizuikeai">
+  
+  <!-- OpenGraph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://note.yunet.cfd/">
+  <meta property="og:title" content="高考全科知识库 · 高中理科系统级知识中枢">
+  <meta property="og:description" content="以第一性原理重构高考理科体系。涵盖物理经典专题模型推导、生物全册机制通路与化学微观反应平衡。">
+  <meta property="og:image" content="https://note.yunet.cfd/images/icon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/icon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans (Elite Grotesk for Latin/Numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================================
+       1. SYSTEM COLOR DESIGN TOKENS & HAPTIC SYSTEM
+       ========================================================================== */
     :root {
-      --bg: #ffffff;
-      --bg-subtle: #f8f8fa;
-      --text-main: #111113;
-      --text-sub: #4b4b52;
-      --text-muted: #767680;
-      --text-faint: #a0a0aa;
-      --border: rgba(0, 0, 0, 0.08);
-      --border-hover: rgba(0, 0, 0, 0.18);
-      --card-bg: #ffffff;
-      --card-hover: #fafafc;
-      --tag-bg: rgba(0, 0, 0, 0.04);
-      --dot-phy: #ea580c;
-      --dot-bio: #059669;
-      --dot-chem: #0284c7;
-      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      /* Base Theme: Light Mode (Porous Soft Structuralism) */
+      --bg-canvas: #fbfbfd;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f4f4f7;
+      --bg-glass: rgba(255, 255, 255, 0.78);
+      --bg-glass-border: rgba(0, 0, 0, 0.08);
+
+      --bezel-outer-bg: rgba(0, 0, 0, 0.025);
+      --bezel-outer-border: rgba(0, 0, 0, 0.07);
+      --bezel-inner-border: rgba(0, 0, 0, 0.05);
+      --bezel-inner-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.95);
+      --bezel-shadow: 0 16px 40px -12px rgba(17, 24, 39, 0.07), 0 2px 6px -1px rgba(17, 24, 39, 0.03);
+
+      --text-primary: #0f1015;
+      --text-secondary: #4a4d57;
+      --text-tertiary: #7e8392;
+      --text-faint: #a6abb9;
+
+      --badge-bg: rgba(0, 0, 0, 0.04);
+      --badge-border: rgba(0, 0, 0, 0.08);
+      --badge-text: #27272a;
+
+      /* Subject Signatures */
+      --phy-accent: #ea580c;
+      --phy-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 60%, #c2410c 100%);
+      --phy-glow: rgba(234, 88, 12, 0.12);
+
+      --bio-accent: #059669;
+      --bio-gradient: linear-gradient(135deg, #10b981 0%, #059669 60%, #047857 100%);
+      --bio-glow: rgba(5, 150, 105, 0.12);
+
+      --chem-accent: #0284c7;
+      --chem-gradient: linear-gradient(135deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
+      --chem-glow: rgba(2, 132, 199, 0.12);
+
+      --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Hiragino Sans GB", sans-serif;
+      --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-flow: cubic-bezier(0.32, 0.72, 0, 1);
     }
 
     [data-theme="dark"] {
-      --bg: #09090b;
-      --bg-subtle: #121215;
-      --text-main: #f4f4f6;
-      --text-sub: #a1a1aa;
-      --text-muted: #71717a;
-      --text-faint: #52525b;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.22);
-      --card-bg: #09090b;
-      --card-hover: #131317;
-      --tag-bg: rgba(255, 255, 255, 0.05);
-      --dot-phy: #f97316;
-      --dot-bio: #10b981;
-      --dot-chem: #38bdf8;
+      /* Dark Mode: Ethereal Vantablack Glass */
+      --bg-canvas: #050507;
+      --bg-surface: #0c0c10;
+      --bg-surface-elevated: #14141a;
+      --bg-glass: rgba(12, 12, 16, 0.78);
+      --bg-glass-border: rgba(255, 255, 255, 0.09);
+
+      --bezel-outer-bg: rgba(255, 255, 255, 0.03);
+      --bezel-outer-border: rgba(255, 255, 255, 0.08);
+      --bezel-inner-border: rgba(255, 255, 255, 0.06);
+      --bezel-inner-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.13);
+      --bezel-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.7), 0 2px 8px -2px rgba(0, 0, 0, 0.5);
+
+      --text-primary: #fbfbfd;
+      --text-secondary: #9ea2b0;
+      --text-tertiary: #676a77;
+      --text-faint: #42444e;
+
+      --badge-bg: rgba(255, 255, 255, 0.05);
+      --badge-border: rgba(255, 255, 255, 0.1);
+      --badge-text: #e4e4e7;
+
+      --phy-accent: #fb923c;
+      --phy-gradient: linear-gradient(135deg, #fdba74 0%, #f97316 60%, #ea580c 100%);
+      --phy-glow: rgba(249, 115, 22, 0.18);
+
+      --bio-accent: #34d399;
+      --bio-gradient: linear-gradient(135deg, #6ee7b7 0%, #10b981 60%, #059669 100%);
+      --bio-glow: rgba(16, 185, 129, 0.18);
+
+      --chem-accent: #38bdf8;
+      --chem-gradient: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 60%, #0284c7 100%);
+      --chem-glow: rgba(56, 189, 248, 0.18);
     }
 
-    * {
+    /* ==========================================================================
+       2. RESET & FOUNDATIONAL SCAFFOLD
+       ========================================================================== */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     html {
-      font-size: 15px;
-      -webkit-text-size-adjust: 100%;
+      font-size: 16px;
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.7;
-      letter-spacing: -0.01em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transition: background-color 0.2s ease, color 0.2s ease;
-      padding: 60px 24px 96px;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      min-height: 100dvh;
+      line-height: 1.65;
+      letter-spacing: -0.015em;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.6s var(--ease-spring), color 0.6s var(--ease-spring);
     }
 
-    @media (max-width: 640px) {
-      body {
-        padding: 40px 18px 72px;
-      }
+    /* Film Grain Noise Overlay (Strict Performance: Fixed & Pointer-events-none) */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events-none;
+      z-index: 50;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    .container {
-      max-width: 640px;
+    /* Radial Ambient Background Glows */
+    .ambient-glows {
+      position: absolute;
+      inset: 0;
+      pointer-events-none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.45;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    .glow-orb-1 {
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 850px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.14) 0%, rgba(16, 185, 129, 0.08) 45%, rgba(2, 132, 199, 0.03) 80%, transparent 100%);
+    }
+
+    .glow-orb-2 {
+      top: 900px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, rgba(234, 88, 12, 0.03) 70%, transparent 100%);
+    }
+
+    .main-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
       margin: 0 auto;
+      padding: 0 24px;
     }
 
-    /* Header */
-    header {
+    /* ==========================================================================
+       3. FLUID ISLAND DETACHED NAV
+       ========================================================================== */
+    .nav-container {
+      position: sticky;
+      top: 24px;
+      z-index: 40;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+    }
+
+    .fluid-island-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 40px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
+      gap: 28px;
+      padding: 8px 12px 8px 18px;
+      border-radius: 9999px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--bg-glass-border);
+      box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+      transition: all 0.5s var(--ease-spring);
     }
 
-    .brand {
+    .nav-brand {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -95,433 +226,1249 @@
       color: inherit;
     }
 
-    .brand-icon {
+    .brand-mark {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
-      background: var(--text-main);
-      color: var(--bg);
+      border-radius: 50%;
+      background: var(--text-primary);
+      color: var(--bg-canvas);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-mono);
-      font-weight: 700;
       font-size: 14px;
-      flex-shrink: 0;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .brand-text h1 {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      color: var(--text-main);
-    }
-
-    .brand-text .domain {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-
-    .header-actions {
+    .brand-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .theme-toggle {
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      width: 32px;
-      height: 32px;
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: #10b981;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .status-pulse {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse-dot 2.4s infinite var(--ease-flow);
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s var(--ease-spring);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-button {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--bezel-inner-border);
+      background: var(--bg-surface-elevated);
+      color: var(--text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: var(--text-muted);
-      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+      outline: none;
+      transition: all 0.4s var(--ease-spring);
     }
 
-    .theme-toggle:hover {
-      color: var(--text-main);
-      background-color: var(--bg-subtle);
-      border-color: var(--border);
+    .theme-button:hover {
+      color: var(--text-primary);
+      transform: scale(1.05);
+      border-color: var(--bezel-outer-border);
     }
 
-    .theme-toggle svg {
+    .theme-button svg {
       width: 16px;
       height: 16px;
-      fill: none;
+      stroke-width: 1.5;
       stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      fill: none;
+      transition: transform 0.5s var(--ease-spring);
     }
 
-    /* Intro */
-    .intro {
-      margin-bottom: 40px;
-    }
-
-    .intro-title {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.35;
-      margin-bottom: 12px;
-      color: var(--text-main);
-    }
-
-    .intro-desc {
-      font-size: 14px;
-      color: var(--text-sub);
-      line-height: 1.7;
-    }
-
-    /* Section */
-    section {
-      margin-bottom: 44px;
-    }
-
-    .section-label {
-      font-size: 11.5px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-faint);
-      font-family: var(--font-mono);
-      margin-bottom: 14px;
-    }
-
-    /* Subject Cards Stack */
-    .subject-list {
+    /* ==========================================================================
+       4. HERO SECTION (MACRO-WHITESPACE & EDITORIAL SCALE)
+       ========================================================================= */
+    .hero-section {
+      padding: 110px 0 80px;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-    }
-
-    .subject-card {
-      display: block;
-      padding: 18px 20px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .subject-card:hover {
-      border-color: var(--border-hover);
-      background-color: var(--card-hover);
-      transform: translateY(-1.5px);
-      box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.06);
-    }
-
-    .card-row-top {
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
+      position: relative;
     }
 
-    .subject-name {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-main);
-      display: flex;
+    .eyebrow-tag {
+      display: inline-flex;
       align-items: center;
-      gap: 9px;
-    }
-
-    .subject-indicator {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .ind-phy { background-color: var(--dot-phy); }
-    .ind-bio { background-color: var(--dot-bio); }
-    .ind-chem { background-color: var(--dot-chem); }
-
-    .arrow-icon {
-      width: 14px;
-      height: 14px;
-      stroke: var(--text-muted);
-      stroke-width: 2;
-      fill: none;
-      opacity: 0.5;
-      transition: opacity 0.15s ease, transform 0.15s ease, stroke 0.15s ease;
-      flex-shrink: 0;
-    }
-
-    .subject-card:hover .arrow-icon {
-      opacity: 1;
-      transform: translate(2px, -2px);
-      stroke: var(--text-main);
-    }
-
-    .subject-desc {
-      font-size: 13.5px;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .card-row-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .tags {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      font-size: 11.5px;
-      color: var(--text-sub);
-      background: var(--tag-bg);
-      padding: 2px 8px;
-      border-radius: 5px;
-      font-weight: 500;
-    }
-
-    .domain-text {
-      font-size: 11.5px;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-    }
-
-    /* Topic Index Grid */
-    .index-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    @media (max-width: 540px) {
-      .index-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .index-item {
-      padding: 12px 14px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg-subtle);
-      font-size: 13px;
-      color: var(--text-sub);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-decoration: none;
-      transition: border-color 0.15s ease, color 0.15s ease;
-    }
-    .index-item:hover {
-      border-color: var(--border-hover);
-      color: var(--text-main);
-    }
-
-    .index-num {
-      font-family: var(--font-mono);
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
       font-size: 11px;
-      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--badge-text);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
     }
 
-    /* Footer */
-    footer {
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--text-muted);
-      flex-wrap: wrap;
-      gap: 12px;
+    .eyebrow-indicator {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--phy-accent);
+      box-shadow: 0 0 10px var(--phy-accent);
     }
 
-    .footer-links {
+    .hero-title {
+      font-size: clamp(38px, 6.2vw, 68px);
+      font-weight: 800;
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      max-width: 880px;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    .hero-title .shimmer-text {
+      background: linear-gradient(135deg, var(--text-primary) 20%, var(--text-tertiary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15.5px, 1.8vw, 18.5px);
+      color: var(--text-secondary);
+      max-width: 660px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+      font-weight: 400;
+    }
+
+    /* Nested Island CTA & Button Architecture */
+    .hero-cta-group {
       display: flex;
       align-items: center;
       gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 64px;
     }
 
-    .footer-links a {
-      color: var(--text-muted);
+    .island-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 6px 8px 6px 24px;
+      border-radius: 9999px;
+      font-size: 14.5px;
+      font-weight: 600;
       text-decoration: none;
-      transition: color 0.15s ease;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.5s var(--ease-spring);
+      outline: none;
     }
 
-    .footer-links a:hover {
-      color: var(--text-main);
+    .island-btn:active {
+      transform: scale(0.97);
+    }
+
+    .island-btn-primary {
+      background: var(--text-primary);
+      color: var(--bg-canvas);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.25);
+    }
+
+    .island-btn-primary:hover {
+      box-shadow: 0 14px 32px -4px rgba(0, 0, 0, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .island-btn-secondary {
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--bezel-outer-border);
+    }
+
+    .island-btn-secondary:hover {
+      background: var(--bg-surface);
+      border-color: var(--text-tertiary);
+      transform: translateY(-2px);
+    }
+
+    /* Button-in-Button Trailing Icon Architecture */
+    .btn-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.5s var(--ease-spring), background 0.3s var(--ease-spring);
+    }
+
+    .island-btn-secondary .btn-icon-wrapper {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] .island-btn-secondary .btn-icon-wrapper {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .island-btn:hover .btn-icon-wrapper {
+      transform: translate(3px, -2px) scale(1.08);
+    }
+
+    .btn-icon-wrapper svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    /* System Stats Ribbon */
+    .spec-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .spec-item {
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-outer-border);
+      text-align: left;
+      transition: all 0.4s var(--ease-spring);
+    }
+
+    .spec-item:hover {
+      border-color: var(--bezel-inner-border);
+      transform: translateY(-2px);
+      box-shadow: var(--bezel-shadow);
+    }
+
+    .spec-num {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text-primary);
+      font-family: var(--font-display);
+    }
+
+    .spec-num span {
+      font-size: 18px;
+      color: var(--phy-accent);
+      margin-left: 2px;
+    }
+
+    .spec-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       5. ASYMMETRICAL BENTO & DOUBLE-BEZEL (DOPPELRAND) ARCHITECTURE
+       ========================================================================== */
+    .section-container {
+      padding: 72px 0;
+    }
+
+    .section-header-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--bezel-outer-border);
+    }
+
+    .section-title-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title-label::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--text-tertiary);
+    }
+
+    .section-aux-info {
+      font-size: 12px;
+      color: var(--text-faint);
+      font-family: var(--font-mono);
+    }
+
+    /* Bento Grid: 1 Large Asymmetric Anchor (Physics) + 2 Balanced Twins (Bio, Chem) */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    /* Double-Bezel Card Master Formula */
+    .double-bezel {
+      border-radius: 2.25rem; /* Outer radius */
+      padding: 7px;
+      background: var(--bezel-outer-bg);
+      border: 1px solid var(--bezel-outer-border);
+      box-shadow: var(--bezel-shadow);
+      transition: transform 0.5s var(--ease-spring), border-color 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-spring);
+      position: relative;
+    }
+
+    .double-bezel:hover {
+      transform: translateY(-4px);
+      border-color: var(--text-faint);
+    }
+
+    .inner-core {
+      border-radius: calc(2.25rem - 7px); /* Concentric inner radius */
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-inner-border);
+      box-shadow: var(--bezel-inner-highlight);
+      padding: 36px 38px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Physics Flagship: Spans 12 columns (Heroic Panorama) */
+    .bento-physics {
+      grid-column: span 12;
+    }
+
+    .bento-physics .inner-core {
+      background: radial-gradient(circle at 90% 10%, var(--phy-glow) 0%, var(--bg-surface) 65%);
+    }
+
+    /* Biology & Chemistry: 6 columns each */
+    .bento-bio {
+      grid-column: span 6;
+    }
+
+    .bento-bio .inner-core {
+      background: radial-gradient(circle at 90% 10%, var(--bio-glow) 0%, var(--bg-surface) 65%);
+    }
+
+    .bento-chem {
+      grid-column: span 6;
+    }
+
+    .bento-chem .inner-core {
+      background: radial-gradient(circle at 90% 10%, var(--chem-glow) 0%, var(--bg-surface) 65%);
+    }
+
+    /* Card Top Bar & Metadata */
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .card-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-domain-badge {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-tertiary);
+      letter-spacing: 0.04em;
+    }
+
+    .subject-pill-tag {
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tag-phy {
+      background: rgba(234, 88, 12, 0.12);
+      color: var(--phy-accent);
+      border: 1px solid rgba(234, 88, 12, 0.25);
+    }
+
+    .tag-bio {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--bio-accent);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .tag-chem {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--chem-accent);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .subject-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--bezel-outer-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.5s var(--ease-spring);
+    }
+
+    .double-bezel:hover .subject-icon-box {
+      transform: scale(1.1) rotate(4deg);
+    }
+
+    .subject-icon-box svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.4;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    /* Card Content */
+    .card-headline {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-desc {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
+
+    .bento-physics .card-desc {
+      max-width: 720px;
+      font-size: 15.5px;
+    }
+
+    /* Micro Vector Graphics Accent within Card */
+    .card-vector-preview {
+      margin: 16px 0 28px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--bezel-outer-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .vector-label {
+      font-size: 12.5px;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+    }
+
+    .vector-pill-cluster {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .vector-pill {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-inner-border);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    /* Card Footer & Trailing Action */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--bezel-outer-border);
+      margin-top: auto;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    /* Nested Action Link */
+    .card-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.4s var(--ease-spring);
+    }
+
+    .cta-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--bezel-outer-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s var(--ease-spring);
+    }
+
+    .cta-circle svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.8;
+      stroke: currentColor;
+      fill: none;
+      transition: transform 0.4s var(--ease-spring);
+    }
+
+    .double-bezel:hover .cta-circle {
+      background: var(--text-primary);
+      color: var(--bg-canvas);
+      transform: translate(3px, -2px) scale(1.06);
+    }
+
+    .double-bezel:hover .cta-circle svg {
+      transform: translate(1px, -1px);
+    }
+
+    /* ==========================================================================
+       6. SYSTEM ARCHITECTURE METHODOLOGY (4 PILLARS)
+       ========================================================================== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .pillar-card {
+      border-radius: 1.75rem;
+      padding: 5px;
+      background: var(--bezel-outer-bg);
+      border: 1px solid var(--bezel-outer-border);
+      transition: transform 0.4s var(--ease-spring);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .pillar-inner {
+      border-radius: calc(1.75rem - 5px);
+      background: var(--bg-surface);
+      border: 1px solid var(--bezel-inner-border);
+      box-shadow: var(--bezel-inner-highlight);
+      padding: 26px 22px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .pillar-number {
+      font-size: 13px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-tertiary);
+    }
+
+    .pillar-icon-tiny {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--bg-surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+    }
+
+    .pillar-icon-tiny svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.5;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    .pillar-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       7. EDITORIAL FOOTER
+       ========================================================================== */
+    .site-footer {
+      padding: 80px 0 60px;
+      margin-top: 40px;
+      border-top: 1px solid var(--bezel-outer-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-brand {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s var(--ease-spring);
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       8. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER FLUID DYNAMICS)
+       ========================================================================== */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(32px);
+      filter: blur(6px);
+      transition: opacity 0.85s var(--ease-flow), transform 0.85s var(--ease-flow), filter 0.85s var(--ease-flow);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-element.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* ==========================================================================
+       9. RESPONSIVE MOBILE COLLAPSE (STRICT DIRECTIVES)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .spec-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        padding: 0 16px;
+      }
+
+      .nav-container {
+        top: 16px;
+      }
+
+      .fluid-island-nav {
+        width: 100%;
+        max-width: 480px;
+        gap: 12px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        display: none; /* Collapses into focused minimal bar on mobile */
+      }
+
+      .hero-section {
+        padding: 70px 0 50px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+      }
+
+      .spec-strip {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .bento-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .bento-physics, .bento-bio, .bento-chem {
+        grid-column: span 12;
+      }
+
+      .inner-core {
+        padding: 26px 20px;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 50px 0 40px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <a href="/" class="brand">
-        <div class="brand-icon">∑</div>
-        <div class="brand-text">
-          <h1>高考全科知识库</h1>
-          <span class="domain">note.yunet.cfd</span>
+
+  <!-- Physical Grain / Noise Texture Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glows" aria-hidden="true">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+  </div>
+
+  <!-- Main Viewport Flow -->
+  <div class="main-wrapper">
+
+    <!-- Fluid Island Detached Navbar -->
+    <div class="nav-container">
+      <nav class="fluid-island-nav" aria-label="主导航">
+        <a href="/" class="nav-brand">
+          <div class="brand-mark">∑</div>
+          <div class="brand-title">
+            高考全科知识库
+            <div class="status-badge">
+              <div class="status-pulse"></div>
+              <span>ONLINE</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#subjects" class="nav-link">学科中枢</a>
+          <a href="#architecture" class="nav-link">系统架构</a>
+          <a href="https://yunet.cfd" class="nav-link" target="_blank" rel="noopener">关于主理人</a>
         </div>
-      </a>
-      <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="切换深色/浅色模式" title="切换主题">
-          <svg viewBox="0 0 24 24" id="themeIcon">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m14.14-14.14l-1.41 1.41"/>
-          </svg>
-        </button>
+
+        <div class="nav-actions">
+          <button class="theme-button" id="themeToggle" aria-label="切换深色/浅色显示模式" title="切换显示模式">
+            <svg id="themeIconSun" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m14.14-14.14l-1.41 1.41"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section reveal-element">
+      <div class="eyebrow-tag">
+        <span class="eyebrow-indicator"></span>
+        FIRST-PRINCIPLES KNOWLEDGE NEXUS
+      </div>
+
+      <h1 class="hero-title">
+        以第一性原理<br>
+        <span class="shimmer-text">重构高考理科体系。</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        面向新高考深度备考的高精度系统知识中枢。彻底抛弃死记硬背与盲目题海，直击经典物理专题模型推演、全景生物调节机制通路与微观化学反应平衡。
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="https://physics.yunet.cfd" class="island-btn island-btn-primary">
+          <span>进入物理核心中枢</span>
+          <div class="btn-icon-wrapper">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
+          </div>
+        </a>
+        <a href="#subjects" class="island-btn island-btn-secondary">
+          <span>浏览全科矩阵</span>
+          <div class="btn-icon-wrapper">
+            <svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Live Specification / Metrics Strip -->
+      <div class="spec-strip">
+        <div class="spec-item">
+          <div class="spec-num">19<span>+</span></div>
+          <div class="spec-label">物理经典核心专题</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-num">5<span>卷</span></div>
+          <div class="spec-label">生物全景教材脉络</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-num">100<span>%</span></div>
+          <div class="spec-label">矢量几何拓扑推演</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-num">&lt;40<span>ms</span></div>
+          <div class="spec-label">Anycast 全球秒级边缘响应</div>
+        </div>
       </div>
     </header>
 
-    <!-- Intro -->
-    <div class="intro">
-      <h2 class="intro-title">以第一性原理重构高考理科体系。</h2>
-      <p class="intro-desc">
-        面向新高考深度备考的系统化知识图谱。抛弃死记硬背与盲目题海，聚焦物理经典专题模型推导、生物全册机制通路与化学微观反应平衡。
-      </p>
-    </div>
+    <!-- Asymmetrical Bento Subjects Grid -->
+    <section id="subjects" class="section-container">
+      <div class="section-header-pill reveal-element">
+        <div class="section-title-label">FLAGSHIP SUBJECT PORTALS · 核心学科矩阵</div>
+        <div class="section-aux-info">SYSTEM v2.6.4</div>
+      </div>
 
-    <!-- Flagship Subjects -->
-    <section>
-      <div class="section-label">FLAGSHIP SUBJECTS · 学科知识库</div>
-      <div class="subject-list">
-        <!-- Physics -->
-        <a href="https://physics.yunet.cfd" class="subject-card">
-          <div class="card-row-top">
-            <span class="subject-name">
-              <span class="subject-indicator ind-phy"></span>
-              高考物理知识库
-            </span>
-            <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </div>
-          <p class="subject-desc">
-            从开普勒双星变轨、粒子复合场偏转到电磁感应突变。以微积分几何思维直击临界极值与守恒本质。
-          </p>
-          <div class="card-row-bottom">
-            <div class="tags">
-              <span class="tag">19 核心专题</span>
-              <span class="tag">力学与电磁</span>
-              <span class="tag">全矢量几何</span>
-            </div>
-            <span class="domain-text">physics.yunet.cfd</span>
-          </div>
-        </a>
+      <div class="bento-grid">
+        
+        <!-- Bento 1: Physics (Hero Anchor Card) -->
+        <article class="double-bezel bento-physics reveal-element">
+          <div class="inner-core">
+            <div>
+              <div class="card-top">
+                <div class="card-badge-row">
+                  <span class="subject-pill-tag tag-phy">PHYSICS 物理</span>
+                  <span class="card-domain-badge">physics.yunet.cfd</span>
+                </div>
+                <div class="subject-icon-box">
+                  <!-- Quantum Orbit Icon -->
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="3"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(-30 12 12)"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(45 12 12)"/>
+                  </svg>
+                </div>
+              </div>
 
-        <!-- Biology -->
-        <a href="https://biology.yunet.cfd" class="subject-card">
-          <div class="card-row-top">
-            <span class="subject-name">
-              <span class="subject-indicator ind-bio"></span>
-              高考生物知识库
-            </span>
-            <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </div>
-          <p class="subject-desc">
-            全景贯通必修与选择性必修全五册教材。解构光合呼吸微观机理、神经体液免疫调节与现代生物工程。
-          </p>
-          <div class="card-row-bottom">
-            <div class="tags">
-              <span class="tag">必修+选必五册</span>
-              <span class="tag">稳态调节通路</span>
-              <span class="tag">基因工程推演</span>
-            </div>
-            <span class="domain-text">biology.yunet.cfd</span>
-          </div>
-        </a>
+              <h2 class="card-headline">高考物理知识库</h2>
+              <p class="card-desc">
+                从开普勒双星变轨、粒子复合场偏转到电磁感应突变。采用微积分几何思维直击临界极值与守恒本质，构建全维力学与电磁学公理化演绎框架。
+              </p>
 
-        <!-- Chemistry -->
-        <a href="https://chemistry-note.seeridia.top" class="subject-card">
-          <div class="card-row-top">
-            <span class="subject-name">
-              <span class="subject-indicator ind-chem"></span>
-              高考化学知识库
-            </span>
-            <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </div>
-          <p class="subject-desc">
-            深入微观电子排布与杂化轨道。剖析电解池/原电池电子转移、水溶液多重平衡移动及晶体晶胞空间投影。
-          </p>
-          <div class="card-row-bottom">
-            <div class="tags">
-              <span class="tag">物质微观结构</span>
-              <span class="tag">化学平衡移动</span>
-              <span class="tag">电化学晶胞</span>
+              <div class="card-vector-preview">
+                <span class="vector-label">核心微模型群推导:</span>
+                <div class="vector-pill-cluster">
+                  <span class="vector-pill">开普勒轨道积分</span>
+                  <span class="vector-pill">复合场回旋极限</span>
+                  <span class="vector-pill">电磁阻尼感应微元</span>
+                  <span class="vector-pill">等效重力场</span>
+                </div>
+              </div>
             </div>
-            <span class="domain-text">chemistry-note.seeridia.top</span>
+
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="meta-tag">19 核心专题</span>
+                <span class="meta-tag">全矢量图解</span>
+                <span class="meta-tag">微分几何解析</span>
+              </div>
+              <a href="https://physics.yunet.cfd" class="card-cta-link" aria-label="直达高考物理知识库">
+                <span>开启物理推演</span>
+                <div class="cta-circle">
+                  <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </div>
+              </a>
+            </div>
           </div>
-        </a>
+        </article>
+
+        <!-- Bento 2: Biology (Balanced Twin Left) -->
+        <article class="double-bezel bento-bio reveal-element">
+          <div class="inner-core">
+            <div>
+              <div class="card-top">
+                <div class="card-badge-row">
+                  <span class="subject-pill-tag tag-bio">BIOLOGY 生物</span>
+                  <span class="card-domain-badge">biology.yunet.cfd</span>
+                </div>
+                <div class="subject-icon-box">
+                  <!-- DNA Double Helix Arc Icon -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 6c4 0 8 4 8 6s4 6 8 6"/>
+                    <path d="M4 18c4 0 8-4 8-6s4-6 8-6"/>
+                    <line x1="7" y1="8" x2="7" y2="16"/>
+                    <line x1="17" y1="8" x2="17" y2="16"/>
+                  </svg>
+                </div>
+              </div>
+
+              <h2 class="card-headline">高考生物知识库</h2>
+              <p class="card-desc">
+                全景贯通必修与选择性必修全五册教材。解构光合呼吸微观能量转移机理、神经体液免疫综合稳态通路与现代基因工程推演。
+              </p>
+
+              <div class="card-vector-preview">
+                <span class="vector-label">核心机制通路:</span>
+                <div class="vector-pill-cluster">
+                  <span class="vector-pill">光合电子传递链</span>
+                  <span class="vector-pill">突触传递跨膜电位</span>
+                  <span class="vector-pill">PCR 循环扩增</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="meta-tag">全五册系统图谱</span>
+                <span class="meta-tag">稳态网络机制</span>
+              </div>
+              <a href="https://biology.yunet.cfd" class="card-cta-link" aria-label="直达高考生物知识库">
+                <span>开启生物中枢</span>
+                <div class="cta-circle">
+                  <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bento 3: Chemistry (Balanced Twin Right) -->
+        <article class="double-bezel bento-chem reveal-element">
+          <div class="inner-core">
+            <div>
+              <div class="card-top">
+                <div class="card-badge-row">
+                  <span class="subject-pill-tag tag-chem">CHEMISTRY 化学</span>
+                  <span class="card-domain-badge">chemistry-note.seeridia.top</span>
+                </div>
+                <div class="subject-icon-box">
+                  <!-- Hexagonal Benzene / Molecular Lattice Icon -->
+                  <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 20.5 7 20.5 17 12 22 3.5 17 3.5 7"/>
+                    <circle cx="12" cy="12" r="3.5" stroke-dasharray="2 2"/>
+                  </svg>
+                </div>
+              </div>
+
+              <h2 class="card-headline">高考化学知识库</h2>
+              <p class="card-desc">
+                深入微观电子排布与杂化轨道理论。剖析电化学电子转移、水溶液多重平衡移动、滴定突跃曲线及晶体晶胞空间投影。
+              </p>
+
+              <div class="card-vector-preview">
+                <span class="vector-label">微观反应推演:</span>
+                <div class="vector-pill-cluster">
+                  <span class="vector-pill">电极双电层电位</span>
+                  <span class="vector-pill">多元弱酸分布系数</span>
+                  <span class="vector-pill">面心立方坐标投影</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="meta-tag">微观杂化轨道</span>
+                <span class="meta-tag">多重平衡移动</span>
+              </div>
+              <a href="https://chemistry-note.seeridia.top" class="card-cta-link" aria-label="直达高考化学知识库">
+                <span>开启化学中枢</span>
+                <div class="cta-circle">
+                  <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- Quick Index / Methodology -->
-    <section>
-      <div class="section-label">SYSTEM ARCHITECTURE · 核心架构</div>
-      <div class="index-grid">
-        <div class="index-item">
-          <span>公理化模型严谨推导</span>
-          <span class="index-num">01</span>
+    <!-- System Methodology & Architecture Section (4 Pillars) -->
+    <section id="architecture" class="section-container">
+      <div class="section-header-pill reveal-element">
+        <div class="section-title-label">SYSTEM METHODOLOGY · 知识库架构体系</div>
+        <div class="section-aux-info">FOUNDATIONAL PRINCIPLES</div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">01 / AXIOMATIC</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">公理化严谨推导</h3>
+            <p class="pillar-desc">摒弃经验主义死背，每条物理守恒与微观平衡均从定义公理严格推导至临界状态。</p>
+          </div>
         </div>
-        <div class="index-item">
-          <span>高保真 SVG 矢量图解</span>
-          <span class="index-num">02</span>
+
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">02 / VECTOR SVG</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">全保真矢量图解</h3>
+            <p class="pillar-desc">采用工业级精确数学坐标系渲染 SVG 图示，无限放大保持锐利，空间场与受力关系纤毫毕现。</p>
+          </div>
         </div>
-        <div class="index-item">
-          <span>高中五册全景知识图谱</span>
-          <span class="index-num">03</span>
+
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">03 / ONTOLOGY</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">全景交叉知识图谱</h3>
+            <p class="pillar-desc">打破教材单册局限，横向贯通必修与选择性必修，构建跨学科与跨模块多维关联网络。</p>
+          </div>
         </div>
-        <div class="index-item">
-          <span>全球 Anycast 边缘秒级直达</span>
-          <span class="index-num">04</span>
+
+        <div class="pillar-card reveal-element">
+          <div class="pillar-inner">
+            <div class="pillar-header">
+              <span class="pillar-number">04 / ANYCAST EDGE</span>
+              <div class="pillar-icon-tiny">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+            </div>
+            <h3 class="pillar-title">全球边缘秒级直达</h3>
+            <p class="pillar-desc">依托 Cloudflare 全球数百节点 Anycast 路由与极简静态架构，实现无等待极速加载响应。</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <span>© 2026 Yulaoshizuikeai · 高中物理知识库体系</span>
-      <div class="footer-links">
-        <a href="https://yunet.cfd">个人主页</a>
-        <a href="https://physics.yunet.cfd">物理</a>
-        <a href="https://biology.yunet.cfd">生物</a>
-        <a href="https://chemistry-note.seeridia.top">化学</a>
+    <!-- Editorial Minimalist Footer -->
+    <footer class="site-footer">
+      <div class="footer-identity">
+        <div class="footer-brand">
+          <div class="brand-mark" style="width: 24px; height: 24px; font-size: 11px;">∑</div>
+          <span>高考全科知识库总中枢 · note.yunet.cfd</span>
+        </div>
+        <p class="footer-copy">© 2026 Yulaoshizuikeai. Built for first-principles science learners.</p>
       </div>
+
+      <nav class="footer-nav" aria-label="底部链接">
+        <a href="https://yunet.cfd" class="footer-link" target="_blank" rel="noopener">主理人首页</a>
+        <a href="https://physics.yunet.cfd" class="footer-link">物理专题</a>
+        <a href="https://biology.yunet.cfd" class="footer-link">生物网络</a>
+        <a href="https://chemistry-note.seeridia.top" class="footer-link">化学微观</a>
+      </nav>
     </footer>
+
   </div>
 
+  <!-- Micro-Interactions & Fluid Dynamics Controller -->
   <script>
-    // Theme toggle
-    const toggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    function setTheme(dark) {
-      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    }
+    (function () {
+      'use strict';
 
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      setTheme(saved === 'dark');
-    } else {
-      setTheme(prefersDark.matches);
-    }
+      // 1. Theme Management (Ethereal OLED Dark by Default, with System Fallback)
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlEl = document.documentElement;
 
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      setTheme(!isDark);
-    });
+      function getPreferredTheme() {
+        const stored = localStorage.getItem('site_theme');
+        if (stored) return stored;
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+
+      function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('site_theme', theme);
+      }
+
+      // Initialize
+      applyTheme(getPreferredTheme());
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const current = htmlEl.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+
+      // 2. High-Performance IntersectionObserver for Scroll Entrance
+      const revealItems = document.querySelectorAll('.reveal-element');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealItems.forEach(el => observer.observe(el));
+      } else {
+        revealItems.forEach(el => el.classList.add('is-revealed'));
+      }
+
+      // 3. Ambient Fluid Island Scroll Compression
+      const navIsland = document.querySelector('.fluid-island-nav');
+      if (navIsland) {
+        window.addEventListener('scroll', () => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          if (scrollY > 50) {
+            navIsland.style.boxShadow = '0 16px 36px -6px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.15)';
+          } else {
+            navIsland.style.boxShadow = '0 12px 32px -8px rgba(0,0,0,0.18), inset 0 1px 1px rgba(255,255,255,0.12)';
+          }
+        }, { passive: true });
+      }
+    })();
   </script>
 </body>
 </html>
