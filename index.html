@@ -136,14 +136,14 @@
       transition: background-color 0.6s var(--ease-spring), color 0.6s var(--ease-spring);
     }
 
-    /* Film Grain Noise Overlay (Strict Performance: Fixed & Pointer-events-none) */
+    /* Film Grain Noise Overlay (Strict Performance: Fixed & pointer-events: none) */
     .noise-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events-none;
-      z-index: 50;
+      pointer-events: none !important;
+      z-index: 1;
       opacity: 0.022;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
@@ -152,7 +152,7 @@
     .ambient-glows {
       position: absolute;
       inset: 0;
-      pointer-events-none;
+      pointer-events: none !important;
       overflow: hidden;
       z-index: 0;
     }
@@ -164,6 +164,7 @@
       opacity: 0.45;
       transform: translateZ(0);
       will-change: transform;
+      pointer-events: none !important;
     }
 
     .glow-orb-1 {
@@ -185,7 +186,7 @@
 
     .main-wrapper {
       position: relative;
-      z-index: 1;
+      z-index: 10;
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
@@ -197,7 +198,7 @@
     .nav-container {
       position: sticky;
       top: 24px;
-      z-index: 40;
+      z-index: 100;
       display: flex;
       justify-content: center;
       padding: 0 16px;
@@ -590,6 +591,10 @@
       box-shadow: var(--bezel-shadow);
       transition: transform 0.5s var(--ease-spring), border-color 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-spring);
       position: relative;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
 
     .double-bezel:hover {
@@ -1172,7 +1177,7 @@
       <div class="bento-grid">
         
         <!-- Bento 1: Physics (Hero Anchor Card) -->
-        <article class="double-bezel bento-physics reveal-element">
+        <a href="https://physics.yunet.cfd" class="double-bezel bento-physics reveal-element" target="_blank" rel="noopener">
           <div class="inner-core">
             <div>
               <div class="card-top">
@@ -1212,18 +1217,18 @@
                 <span class="meta-tag">全矢量图解</span>
                 <span class="meta-tag">微分几何解析</span>
               </div>
-              <a href="https://physics.yunet.cfd" class="card-cta-link" aria-label="直达高考物理知识库">
+              <div class="card-cta-link" aria-label="直达高考物理知识库">
                 <span>开启物理推演</span>
                 <div class="cta-circle">
                   <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- Bento 2: Biology (Balanced Twin Left) -->
-        <article class="double-bezel bento-bio reveal-element">
+        <a href="https://biology.yunet.cfd" class="double-bezel bento-bio reveal-element" target="_blank" rel="noopener">
           <div class="inner-core">
             <div>
               <div class="card-top">
@@ -1262,18 +1267,18 @@
                 <span class="meta-tag">全五册系统图谱</span>
                 <span class="meta-tag">稳态网络机制</span>
               </div>
-              <a href="https://biology.yunet.cfd" class="card-cta-link" aria-label="直达高考生物知识库">
+              <div class="card-cta-link" aria-label="直达高考生物知识库">
                 <span>开启生物中枢</span>
                 <div class="cta-circle">
                   <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- Bento 3: Chemistry (Balanced Twin Right) -->
-        <article class="double-bezel bento-chem reveal-element">
+        <a href="https://chemistry-note.seeridia.top" class="double-bezel bento-chem reveal-element" target="_blank" rel="noopener">
           <div class="inner-core">
             <div>
               <div class="card-top">
@@ -1310,15 +1315,15 @@
                 <span class="meta-tag">微观杂化轨道</span>
                 <span class="meta-tag">多重平衡移动</span>
               </div>
-              <a href="https://chemistry-note.seeridia.top" class="card-cta-link" aria-label="直达高考化学知识库">
+              <div class="card-cta-link" aria-label="直达高考化学知识库">
                 <span>开启化学中枢</span>
                 <div class="cta-circle">
                   <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
-        </article>
+        </a>
 
       </div>
     </section>
