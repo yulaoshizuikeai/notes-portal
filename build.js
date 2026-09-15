@@ -67,7 +67,7 @@ async function handleRequest(request) {
     return new Response(PORTAL_ICON_SVG, {
       headers: {
         'content-type': 'image/svg+xml; charset=utf-8',
-        'cache-control': 'public, max-age=86400',
+        'cache-control': 'public, max-age=60, s-maxage=60',
         'x-content-type-options': 'nosniff',
         'access-control-allow-origin': '*'
       }
@@ -78,7 +78,7 @@ async function handleRequest(request) {
     return new Response(FAVICON_SVG, {
       headers: {
         'content-type': 'image/svg+xml; charset=utf-8',
-        'cache-control': 'public, max-age=86400',
+        'cache-control': 'public, max-age=60, s-maxage=60',
         'x-content-type-options': 'nosniff',
         'access-control-allow-origin': '*'
       }
