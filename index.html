@@ -1578,10 +1578,10 @@
 
             <!-- 3. Output Delivery -->
             <div class="arch-flow-node">
-              <div class="arch-node-tag">OUTPUT ARTIFACTS</div>
+              <div class="arch-node-tag">EDGE & ARTIFACTS</div>
               <div class="arch-node-name">多端输出与交付</div>
               <div class="arch-node-desc">
-                • GitHub Pages 静态网页<br>
+                • Cloudflare 全球边缘加速<br>
                 • Playwright 编译全书 PDF<br>
                 • GitHub Releases 自动发版
               </div>
@@ -1673,11 +1673,11 @@
                 <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
               </div>
             </div>
-            <h3 class="pillar-title">自动化构建与 PDF 导出</h3>
+            <h3 class="pillar-title">自动化构建与多端交付</h3>
             <span class="pillar-tech-badge">GitHub Actions · Playwright</span>
-            <p class="pillar-desc">工业级 Docs-as-Code 持续集成流水线，实现静态网站自动发布与印刷级 PDF 归档。</p>
+            <p class="pillar-desc">工业级 Docs-as-Code 持续集成流水线，实现边缘网站自动发布与印刷级 PDF 归档。</p>
             <ul class="pillar-feature-list">
-              <li class="pillar-feature-item"><strong>自动化构建部署</strong>：代码推送至 master 分支后，CI 自动执行 VitePress 编译并部署至 GitHub Pages。</li>
+              <li class="pillar-feature-item"><strong>自动化构建部署</strong>：代码推送至 master 分支后，CI 自动执行编译并部署至 Cloudflare 全球边缘网络。</li>
               <li class="pillar-feature-item"><strong>Playwright 批量渲染</strong>：在 CI 中加载 Noto CJK 中文字体，通过无头 Chromium 批量高保真导出 PDF。</li>
               <li class="pillar-feature-item"><strong>Release 自动发版</strong>：脚本合并单文件全书 PDF 并打包分册 ZIP，自动发布至 GitHub Releases 供用户下载。</li>
             </ul>
