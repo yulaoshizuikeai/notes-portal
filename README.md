@@ -1,6 +1,13 @@
-# 高考全科知识库总门户 (note.yunet.cfd)
+<p align="center">
+  <img src="./portal_icon.svg" width="128" height="128" alt="High School Science Notes Portal Logo" />
+</p>
 
-高考理科知识体系中枢导航，现已部署上线至顶级域名 **[note.yunet.cfd](https://note.yunet.cfd)**。
+<h1 align="center">高考全科知识库总门户 (note.yunet.cfd)</h1>
+
+<p align="center">
+  <strong>高考理科知识体系中枢导航 · 全学科知识矩阵与在线文档体系</strong><br>
+  <span>在线访问：</span><a href="https://note.yunet.cfd"><strong>note.yunet.cfd</strong></a>
+</p>
 
 ---
 
