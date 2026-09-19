@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>高考全科知识库 · 高中理科知识体系与在线文档</title>
-  <meta name="description" content="高中理科（物理、生物、化学）在线知识库门户。整理高考考点模型、教材知识结构与矢量图解，支持网页查阅与离线 PDF 下载。">
-  <meta name="keywords" content="高考知识库,高中物理,高中生物,高中化学,考点模型,知识脉络,高考理科,PDF下载">
+  <title>高考全科知识库 · 高中核心学科知识体系与在线文档</title>
+  <meta name="description" content="高中学科（物理、英语、生物、化学）在线知识库门户。整理高考考点模型、教材知识结构与语法清单，支持网页查阅与离线 PDF 下载。">
+  <meta name="keywords" content="高考知识库,高中物理,高中英语,高中生物,高中化学,外研版英语,考点模型,知识脉络,语法清单,PDF下载">
   <meta name="author" content="Yulaoshizuikeai">
   
   <!-- OpenGraph / Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://note.yunet.cfd/">
-  <meta property="og:title" content="高考全科知识库 · 高中理科知识体系与在线文档">
-  <meta property="og:description" content="整理高考物理、生物、化学核心考点与解题模型，梳理教材知识脉络并配套矢量图解，提供网页在线查阅与离线 PDF 下载。">
+  <meta property="og:title" content="高考全科知识库 · 高中核心学科知识体系与在线文档">
+  <meta property="og:description" content="整理高考物理、英语、生物、化学核心考点与解题模型，梳理教材知识脉络并配套矢量图解与清单，提供网页在线查阅与离线 PDF 下载。">
   <meta property="og:image" content="https://note.yunet.cfd/images/icon.svg?v=2">
   <meta name="twitter:card" content="summary_large_image">
   
@@ -62,6 +62,10 @@
       --bio-gradient: linear-gradient(135deg, #10b981 0%, #059669 60%, #047857 100%);
       --bio-glow: rgba(5, 150, 105, 0.12);
 
+      --eng-accent: #6366f1;
+      --eng-gradient: linear-gradient(135deg, #818cf8 0%, #6366f1 60%, #4f46e5 100%);
+      --eng-glow: rgba(99, 102, 241, 0.12);
+
       --chem-accent: #0284c7;
       --chem-gradient: linear-gradient(135deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
       --chem-glow: rgba(2, 132, 199, 0.12);
@@ -103,6 +107,10 @@
       --bio-accent: #34d399;
       --bio-gradient: linear-gradient(135deg, #6ee7b7 0%, #10b981 60%, #059669 100%);
       --bio-glow: rgba(16, 185, 129, 0.18);
+
+      --eng-accent: #818cf8;
+      --eng-gradient: linear-gradient(135deg, #a5b4fc 0%, #818cf8 60%, #6366f1 100%);
+      --eng-glow: rgba(129, 140, 248, 0.18);
 
       --chem-accent: #38bdf8;
       --chem-gradient: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 60%, #0284c7 100%);
@@ -634,13 +642,21 @@
       overflow: hidden;
     }
 
-    /* Physics Flagship: Spans 12 columns (Heroic Panorama) */
+    /* Bento Grid: 4 Balanced Core Subject Portals (2x2 Grid) */
     .bento-physics {
-      grid-column: span 12;
+      grid-column: span 6;
     }
 
     .bento-physics .inner-core {
       background: radial-gradient(circle at 90% 10%, var(--phy-glow) 0%, var(--bg-surface) 65%);
+    }
+
+    .bento-eng {
+      grid-column: span 6;
+    }
+
+    .bento-eng .inner-core {
+      background: radial-gradient(circle at 90% 10%, var(--eng-glow) 0%, var(--bg-surface) 65%);
     }
 
     /* Biology & Chemistry: 6 columns each */
@@ -695,6 +711,12 @@
       background: rgba(234, 88, 12, 0.12);
       color: var(--phy-accent);
       border: 1px solid rgba(234, 88, 12, 0.25);
+    }
+
+    .tag-eng {
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--eng-accent);
+      border: 1px solid rgba(99, 102, 241, 0.25);
     }
 
     .tag-bio {
@@ -752,12 +774,6 @@
       line-height: 1.7;
       color: var(--text-secondary);
       margin-bottom: 28px;
-      max-width: 640px;
-    }
-
-    .bento-physics .card-desc {
-      max-width: 720px;
-      font-size: 15.5px;
     }
 
     /* Micro Vector Graphics Accent within Card */
@@ -1256,7 +1272,7 @@
         gap: 16px;
       }
 
-      .bento-physics, .bento-bio, .bento-chem {
+      .bento-physics, .bento-eng, .bento-bio, .bento-chem {
         grid-column: span 12;
       }
 
@@ -1337,16 +1353,16 @@
     <header class="hero-section reveal-element">
       <div class="eyebrow-tag">
         <span class="eyebrow-indicator"></span>
-        HIGH SCHOOL SCIENCE NOTES PORTAL
+        HIGH SCHOOL CORE SUBJECTS NOTES PORTAL
       </div>
 
       <h1 class="hero-title">
-        高考理科知识库<br>
+        高考全科知识库<br>
         <span class="shimmer-text">考点模型与在线文档体系。</span>
       </h1>
 
       <p class="hero-subtitle">
-        面向高考备考系统整理的物理、生物与化学在线知识库。覆盖核心概念推导、题型模型与教材知识脉络，配套矢量图解，支持网页查阅与离线 PDF 下载。
+        面向高考备考系统整理的物理、英语、生物与化学在线知识库。覆盖核心概念推导、语法清单与教材知识脉络，配套矢量图解，支持网页查阅与离线 PDF 下载。
       </p>
 
       <div class="hero-cta-group">
@@ -1371,12 +1387,12 @@
           <div class="spec-label">物理核心专题分类</div>
         </div>
         <div class="spec-item">
-          <div class="spec-num">5<span>册</span></div>
-          <div class="spec-label">生物教材完整覆盖</div>
+          <div class="spec-num">42<span>单元</span></div>
+          <div class="spec-label">外研版英语语法清单</div>
         </div>
         <div class="spec-item">
-          <div class="spec-num">SVG</div>
-          <div class="spec-label">矢量高清模型图解</div>
+          <div class="spec-num">5<span>册</span></div>
+          <div class="spec-label">生物教材完整覆盖</div>
         </div>
         <div class="spec-item">
           <div class="spec-num">Edge</div>
@@ -1445,7 +1461,59 @@
           </div>
         </a>
 
-        <!-- Bento 2: Biology (Balanced Twin Left) -->
+        <!-- Bento 2: English (Core Subject Right) -->
+        <a href="https://english.yunet.cfd" class="double-bezel bento-eng reveal-element" target="_blank" rel="noopener">
+          <div class="inner-core">
+            <div>
+              <div class="card-top">
+                <div class="card-badge-row">
+                  <span class="subject-pill-tag tag-eng">ENGLISH 英语</span>
+                  <span class="card-domain-badge">english.yunet.cfd</span>
+                </div>
+                <div class="subject-icon-box">
+                  <!-- Book & Grammar Quill Icon -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    <line x1="9" y1="7" x2="16" y2="7"/>
+                    <line x1="9" y1="11" x2="14" y2="11"/>
+                  </svg>
+                </div>
+              </div>
+
+              <h2 class="card-headline">高考英语知识库</h2>
+              <p class="card-desc">
+                覆盖外研版高中英语必修 3 册与选必 4 册（共 42 单元 Using Language 核心知识清单），系统梳理非谓语动词、三大从句、虚拟语气与高考易错语法体系。
+              </p>
+
+              <div class="card-vector-preview">
+                <span class="vector-label">核心语法清单:</span>
+                <div class="vector-pill-cluster">
+                  <span class="vector-pill">42 单元 Using Language</span>
+                  <span class="vector-pill">非谓语三大形态判定</span>
+                  <span class="vector-pill">三大从句高考模型</span>
+                  <span class="vector-pill">黄金解题结论速查</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="meta-tag">外研版 7 册教材</span>
+                <span class="meta-tag">12 个核心专题</span>
+                <span class="meta-tag">黄金结论与避坑清单</span>
+              </div>
+              <div class="card-cta-link" aria-label="访问高考英语知识库">
+                <span>访问英语知识库</span>
+                <div class="cta-circle">
+                  <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Bento 3: Biology (Balanced Twin Left) -->
         <a href="https://biology.yunet.cfd" class="double-bezel bento-bio reveal-element" target="_blank" rel="noopener">
           <div class="inner-core">
             <div>
@@ -1586,6 +1654,13 @@
               </div>
               <div class="arch-sub-node">
                 <div>
+                  <div class="arch-sub-name">English-Note (英语知识库)</div>
+                  <div class="arch-node-desc">外研版 7 册 42 单元 · 语法清单 · 黄金结论</div>
+                </div>
+                <div class="arch-sub-tech">english.yunet.cfd</div>
+              </div>
+              <div class="arch-sub-node">
+                <div>
                   <div class="arch-sub-name">Biology-Note (生物知识库)</div>
                   <div class="arch-node-desc">5 册教材全覆盖 · 生理机制通路图谱</div>
                 </div>
@@ -1634,7 +1709,7 @@
             <span class="pillar-tech-badge">Cloudflare Workers · JS</span>
             <p class="pillar-desc">全站访问入口与流量分流中枢，基于边缘无服务器计算运行，实现零服务器运维成本。</p>
             <ul class="pillar-feature-list">
-              <li class="pillar-feature-item"><strong>路径分流与重定向</strong>：监听 <code>/physics</code>、<code>/biology</code>、<code>/chemistry</code> 路径并 301 重定向至各独立子域。</li>
+              <li class="pillar-feature-item"><strong>路径分流与重定向</strong>：监听 <code>/physics</code>、<code>/english</code>、<code>/biology</code>、<code>/chemistry</code> 路径并 301 重定向至各独立子域。</li>
               <li class="pillar-feature-item"><strong>SEO 自动化输出</strong>：边缘动态直出 <code>sitemap.xml</code>、<code>robots.txt</code> 及 Google 站点验证。</li>
               <li class="pillar-feature-item"><strong>极速响应</strong>：内联 SVG 资产与单页 HTML，由 GitHub Actions 自动编译部署至全球边缘节点。</li>
             </ul>
@@ -1736,12 +1811,13 @@
           </div>
           <span>高考全科知识库门户 · note.yunet.cfd</span>
         </div>
-        <p class="footer-copy">© 2026 Yulaoshizuikeai. 高中理科考点模型与在线文档体系。</p>
+        <p class="footer-copy">© 2026 Yulaoshizuikeai. 高中知识体系与在线文档体系。</p>
       </div>
 
       <nav class="footer-nav" aria-label="底部链接">
         <a href="https://yunet.cfd" class="footer-link" target="_blank" rel="noopener">主理人首页</a>
         <a href="https://physics.yunet.cfd" class="footer-link">物理知识库</a>
+        <a href="https://english.yunet.cfd" class="footer-link">英语知识库</a>
         <a href="https://biology.yunet.cfd" class="footer-link">生物知识库</a>
         <a href="https://chemistry-note.seeridia.top" class="footer-link">化学知识库</a>
       </nav>

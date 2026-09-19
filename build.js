@@ -96,6 +96,11 @@ async function handleRequest(request) {
     return Response.redirect('https://physics.yunet.cfd' + target, 301);
   }
 
+  if (path === '/english' || path.startsWith('/english/')) {
+    const target = path.replace(/^\\/english/, '') || '/';
+    return Response.redirect('https://english.yunet.cfd' + target, 301);
+  }
+
   if (path === '/biology' || path.startsWith('/biology/')) {
     const target = path.replace(/^\\/biology/, '') || '/';
     return Response.redirect('https://biology.yunet.cfd' + target, 301);
